@@ -1,0 +1,39 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Solution {
+    public static void philaland(int n,int arr[])
+    {
+        int res[]=new int[n];
+        int j=0;
+        for(int i=0;i<n;i++)
+        {
+            int count=0;
+            int num=arr[i];
+            while(num>0)
+            {
+                int d;
+                d=num%2;
+                count++;
+                num=num/2;
+            }
+            res[j]=count;
+            j++;
+        }
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(res[i]);
+        }
+    }
+    public static void main(String[] args) {
+        int n;
+        Scanner sc=new Scanner(System.in);
+        n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        philaland(n,arr);
+    }
+}

@@ -1,0 +1,52 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Solution {
+       public static boolean isPrime(int n)
+    {
+        for(int i=2;i<=(int)(Math.sqrt(n));i++)
+        {
+            if(n%i==0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static int countp(int n)
+    {
+       
+        List<Integer> lt=new ArrayList<>();
+        for(int i=2;i<=n;i++)
+        {
+            if(isPrime(i))
+            {
+                lt.add(i);
+                
+            }
+        }
+         int c=0;
+         int sum=lt.get(0);
+        for(int i=1;i<lt.size();i++)
+        {
+           sum+=lt.get(i);
+           if(sum>n)
+           {
+               break;
+           }
+           if(isPrime(sum))
+           {
+               c++;
+           }
+        }
+        return c;
+        
+    }
+ 
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int res=countp(n);
+      System.out.print(res);
+    }
+}
